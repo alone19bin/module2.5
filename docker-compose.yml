@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  postgres:
+    image: mysql:alpine
+    container_name: aws
+    restart: always
+    hostname: postgres
+    ports:
+      -
+    environment:
+      MYSQL_DB:

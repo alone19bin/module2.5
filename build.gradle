@@ -1,0 +1,57 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+group = 'org.maxim'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.1.2'
+	implementation 'org.springframework.session:spring-session-core'
+	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:3.1.2'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor:3.1.2'
+	implementation 'software.amazon.awssdk:s3:2.17.28'
+	implementation 'software.amazon.awssdk:netty-nio-client:2.17.28'
+	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux:3.1.2'
+
+	// JWT
+
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+
+	// Lombok
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// MapStruct
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+	// JUnit
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.2'
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.springframework.security:spring-security-test:6.1.3'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'dev.miku:r2dbc-mysql:0.8.2.RELEASE'
+}
+
